@@ -1,15 +1,15 @@
 # Gitlab runner
 
-安装主机：unbuntu 16.04
+##### 安装主机：unbuntu 16.04
 
-目前支持：
+##### 目前支持：
 
 * Debian
 * Ubuntu
 * RHEL
 * CentOS.
 
-安装步骤：
+##### 安装步骤：
 
 1.
 
@@ -17,7 +17,7 @@
 curl -sSL https://get.docker.com/ | sh
 ```
 
-2. Add GitLab's official repository:
+2.Add GitLab's official repository:
 
 ```
 # For Debian/Ubuntu
@@ -59,6 +59,20 @@ Please enter the Docker image (eg. ruby:2.1):
 ruby:2.1
 
 INFO[0037] Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
+```
+
+#### 更新runner
+
+```
+# For Debian/Ubuntu
+sudo apt-get update
+sudo apt-get install gitlab-ci-multi-runner
+
+
+# For RHEL/CentOS
+
+sudo yum update
+sudo yum install gitlab-ci-multi-runner
 ```
 
 
