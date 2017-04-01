@@ -37,7 +37,7 @@ git push origin master
 
 ##### ![](/assets/WX20170401-141854@2x.png)
 
-######    1. 在运行runner的主机上注册一个runner\(此处是运行 Specific Runners\)
+###### 1. 在运行runner的主机上注册一个runner\(此处是运行 Specific Runners\)
 
 ```
 sudo gitlab-runner register
@@ -46,7 +46,6 @@ http://192.168.59.103:10080/ci
 Please enter the gitlab-ci token for this runner:
 PdMd2jCCHwqHftxu6y7x
 Please enter the gitlab-ci description for this runner:
-[gitlab]: php
 Please enter the gitlab-ci tags for this runner (comma separated):
 
 Whether to lock Runner to current project [true/false]:
@@ -56,20 +55,20 @@ Please enter the executor: virtualbox, docker-ssh+machine, kubernetes, docker, p
 docker
 Please enter the default Docker image (e.g. ruby:2.1):
 php:5.6
-Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded! 
+Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
 ```
 
 配置好如图：![](/assets/WX20170401-142717@2x.png)
 
-######    2. 配置成功Runner后，最后一次的提交padding状态就会变成running , faild , success 状态。
+###### 2. 配置成功Runner后，最后一次的提交padding状态就会变成running , faild , success 状态。
 
 ![](/assets/WX20170401-142928@2x.png)
 
-######   3. 点击查看任务详情可以查看运行的终端log和jobs的失败成功原因。
+###### 3. 点击查看任务详情可以查看运行的终端log和jobs的失败成功原因。
 
 ###### ![](/assets/WX20170401-143343@2x.png)
 
-######    4 . 完成一次简单的构建end.
+###### 4 . 完成一次简单的构建end.
 
 
 
