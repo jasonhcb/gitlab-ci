@@ -92,12 +92,14 @@ job1:
   2.如果 build 中的jobs都成功执行了, test 中的jobs将并行执行.  
   3.如果 test 中的jobs都成功执行了, deploy 中的jobs将并行执行.  
   4.如果 deploy 中的jobs都成功完成, 该条 commit 将标记为 success.  
-  5.如果前面任意一个jobs执行失败，该条 commit 将标记为 failed，并且 下一步的stage中的jobs不会继续下去。  
-  
+  5.如果前面任意一个jobs执行失败，该条 commit 将标记为 failed，并且 下一步的stage中的jobs不会继续下去。
+
   还有两种特别情况：
 
   1.如果没有定义任何的`stages`，默认情况下`build`,`test`,`deploy`允许作为预设任务的stage，即stage名为`build`,`test`,`deploy`.  
-  2.如果一个job没有执行`stage`,该任务会指派为`test`stage.
+  2.如果一个job没有执行`stage`,该任务会指派为`test` stage.
+* ---
+* types
 
 
 
