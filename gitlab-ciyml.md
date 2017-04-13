@@ -98,8 +98,8 @@ job1:
 
   1.如果没有定义任何的`stages`，默认情况下`build`,`test`,`deploy`允许作为预设任务的stage，即stage名为`build`,`test`,`deploy`.  
   2.如果一个job没有执行`stage`,该任务会指派为`test` stage.
+
 * ---
-* types
 
 
 
