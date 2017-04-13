@@ -53,7 +53,7 @@ job1:
 
 * ---
 
-  #### image and services
+  #### image and services <span id="jump"></span>
 
   这两个关键词允许指定该job需要使用的自定义的Dokcer images和 Docker services。该功能的配置已涵盖在[GitLab CI与Docker的整合](https://docs.gitlab.com.cn/ce/ci/docker/README.html)文档中。
 
@@ -71,7 +71,7 @@ job1:
 
 * ---
 
-  #### stages
+  #### stages 
 
   `stages`在jobs中可以用来定义build的各个阶段，`stages`的规范允许灵活的使用多个stage pipelines。
 
@@ -100,6 +100,5 @@ job1:
   2.如果一个job没有执行`stage`,该任务会指派为`test` stage.
 
 * ---
- #### types <span id="jump"></span>
+ #### types 
 与`stages`
-
