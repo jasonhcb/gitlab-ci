@@ -100,6 +100,6 @@ job1:
   2.如果一个job没有执行`stage`,该任务会指派为`test` stage.
 
 * ---
-
-
+ #### types <span id="jump"></span>
+与`stages`
 
