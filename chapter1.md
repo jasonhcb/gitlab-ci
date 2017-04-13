@@ -54,7 +54,7 @@ ruby:2.1
 INFO[0037] Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
 ```
 
-* #### 更新runner
+* ##### 更新runner
 
 ```
 # For Debian/Ubuntu
