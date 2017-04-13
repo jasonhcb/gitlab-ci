@@ -53,7 +53,7 @@ job1:
 
 * ---
 
-  #### image and services <span id="jump"></span>
+  #### image and services
 
   这两个关键词允许指定该job需要使用的自定义的Dokcer images和 Docker services。该功能的配置已涵盖在[GitLab CI与Docker的整合](https://docs.gitlab.com.cn/ce/ci/docker/README.html)文档中。
 
