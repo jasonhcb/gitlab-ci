@@ -1,4 +1,4 @@
-# .gitlab-ci.yml配置和参数详解
+# gitlab-ci.yml配置和参数详解
 
 
 
