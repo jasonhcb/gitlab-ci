@@ -20,7 +20,7 @@ curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-
 curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.rpm.sh | sudo bash
 ```
 
-    3.Install`gitlab-ci-multi-runner`
+##### 3  . 安装gitlab-ci-multi-runner
 
 ```
 # For Debian/Ubuntu
@@ -30,9 +30,7 @@ sudo apt-get install gitlab-ci-multi-runner
 sudo yum install gitlab-ci-multi-runner
 ```
 
-```
- 4 .Register the Runner
-```
+##### 4  . 注册 Runner
 
 ```
 sudo gitlab-ci-multi-runner register
