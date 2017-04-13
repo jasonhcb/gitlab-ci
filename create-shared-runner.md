@@ -15,13 +15,15 @@
 
 * ##### 创建Shared Runner
 
-###### 1. 打开admin-&gt;setting-&gt;runners![](/assets/WX20170401-151214@2x.png)
+ ###### 1. 打开admin-&gt;setting-&gt;runners
+ 
+ ![](/assets/WX20170401-151214@2x.png)
 
-###### 2.gitlab-runner register一个shared runner
+ ###### 2.gitlab-runner register一个shared runner
 
-```bash
-sudo gitlab-runner register
-```
+ ```bash
+ sudo gitlab-runner register
+ ```
 
 
 
