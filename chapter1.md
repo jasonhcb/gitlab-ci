@@ -4,15 +4,13 @@
 * ##### 目前支持：Debian , Ubuntu , RHEL , CentOS.
 * ##### 安装步骤：
 
-  1.
+##### 1 . 安装docker
 
 ```
 curl -sSL https://get.docker.com/ | sh
 ```
 
-```
-2.Add GitLab's official repository:
-```
+##### 2  . 添加源
 
 ```
 # For Debian/Ubuntu
