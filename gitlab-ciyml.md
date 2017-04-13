@@ -103,7 +103,7 @@ job1:
 
   #### types
 
-  与`stages` [image](#image)d
+  与`stages` [image](#image)
 
 
 
