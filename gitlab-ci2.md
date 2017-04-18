@@ -129,3 +129,13 @@ cleanup_job:
 1.`cleanup_build_job`仅在build_job失败时执行。
 2.始终执行`cleanup_job`作为流水线的最后一步，无论成功或失败。
 3.允许您`deploy_job从GitLab`的UI 手动执行。
+
+###### Manual actions
+>Gitlab 8.10中介绍
+
+手动操作 是特殊的job类型是不会自动构建的，他们需要用户明确的启动，可以从pipeline,build,environment和deployment views开始操作。
+
+手动操作的示例使用是部署到生成环境。
+更多文档请参考:[ environments documentation.](https://docs.gitlab.com.cn/ce/ci/environments.html#manually-deploying-to-environments)
+
+手动操作是可选的和可阻止的，阻止手动
