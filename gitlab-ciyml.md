@@ -122,5 +122,21 @@ job1:
   #### cache 
   > 该功能自GitLab Runner v0.7.0引入。
   
-  chche 用来指定需要在 builds 之间进行缓存的一组文件、文件夹。 你可以只使用project workspace里面的路径。
+  chche 用来指定需要在 builds 之间进行缓存的一组文件、文件夹。 你可以只使用project workspace里面的路径。在Gitlab 9.0已经默认cache 共享在pipelines 和 jobs。如果定义在 jobs 之外就是全局的cache。比如：
+  缓存binaries 目录下的文件和.config文件：
+  ```
+  rspec:
+  script: test
+  cache:
+    paths:
+    - binaries/
+    - .config
 
+  ```
+  缓存所有未被Git跟踪的文件：
+  ```
+  rspec:
+    script: test
+    cache:
+      untracked: true
+  ```
