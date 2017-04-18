@@ -8,7 +8,7 @@
   * `only`和`except`允许使用特定的关键字：`branches`,`tags`,`triggers`。
   * `only`和`except`允许使用特殊的项目存储路径来作为过滤条件。
 
-以下的例子是job 只针对以正则 `issue-`开头的参数，而所有的分支会被跳过。
+以下的例子是`job` 只针对以正则 `issue-`开头的参数，而所有的分支会被跳过。
 ```
 job:
   # use regexp
@@ -17,4 +17,20 @@ job:
   # use special keyword
   except:
     - branches
+```
+下面的例子是`job` 只对标记的标签起作用，或者通过 API 触发器请求构建。
+```
+job:
+  # use special keywords
+  only:
+    - tags
+    - triggers
+```
+项目存储路径为过滤条件的jobs将会解释父项目的构建而不会执行forks的构建，下面这个例子就是`job`除去`master`之外所有分支都会触发构建。
+```
+job:
+  only:
+    - branches@gitlab-org/gitlab-ce
+  except:
+    - master@gitlab-org/gitlab-ce
 ```
