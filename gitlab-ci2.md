@@ -41,6 +41,5 @@ job:
 job_name:
   variables: []
 ```
-详细参考：
-
+详细参考：[variables 文档](https://docs.gitlab.com.cn/ce/ci/variables/README.html)
 
