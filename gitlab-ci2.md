@@ -43,3 +43,7 @@ job_name:
 ```
 详细参考：[variables 文档](https://docs.gitlab.com.cn/ce/ci/variables/README.html)
 
+---
+##### tags
+
+
