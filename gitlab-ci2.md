@@ -88,5 +88,44 @@ job3:
 2.`on_failure` - 仅当前一个阶段的至少一个作业发生故障时才执行作业。
 3.`always` - 无论前一阶段的工作状况如何，执行工作。
 4.`manual` - 手动执行作业（在GitLab 8.10中添加）。阅读 下面的手动操作。
+例如：
+```
+stages:
+- build
+- cleanup_build
+- test
+- deploy
+- cleanup
 
+build_job:
+  stage: build
+  script:
+  - make build
 
+cleanup_build_job:
+  stage: cleanup_build
+  script:
+  - cleanup build when failed
+  when: on_failure
+
+test_job:
+  stage: test
+  script:
+  - make test
+
+deploy_job:
+  stage: deploy
+  script:
+  - make deploy
+  when: manual
+
+cleanup_job:
+  stage: cleanup
+  script:
+  - cleanup after jobs
+  when: always
+```
+上面的例子解释：
+1.`cleanup_build_job`仅在build_job失败时执行。
+2.始终执行`cleanup_job`作为流水线的最后一步，无论成功或失败。
+3.允许您`deploy_job从GitLab`的UI 手动执行。
