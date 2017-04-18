@@ -51,26 +51,27 @@ job1:
   | variables | no | 定义build变量 |
   | cache | no | 定义与后续job之间应缓存的文件 |
 
-* ---
+ ---
 
-  #### image and services 
+  #### image and services
+
   这两个关键词允许指定该job需要使用的自定义的Dokcer images和 Docker services。该功能的配置已涵盖在[GitLab CI与Docker的整合](https://docs.gitlab.com.cn/ce/ci/docker/README.html)文档中。
 
-* ---
+ ---
 
   #### before\_script
 
   `before_script`用来定义 所有的jobs开始之前执行的命令， 包括部署任务。他可以是一个数组或多行字符串。
 
-* ---
+ ---
 
   #### after\_script
 
   `after_script`用来定义所有builds完成之后执行的任务，它可以是一个数组或者是多行字符串。
 
-* ---
+ ---
 
-  #### stages 
+  #### stages
 
   `stages`在jobs中可以用来定义build的各个阶段，`stages`的规范允许灵活的使用多个stage pipelines。
 
@@ -82,9 +83,9 @@ job1:
 
   ```
   stages:
-  - build
-  - test
-  - deploy
+    - build
+    - test
+    - deploy
   ```
 
   1.首先 build 中的jobs将并行执行。  
@@ -98,11 +99,12 @@ job1:
   1.如果没有定义任何的`stages`，默认情况下`build`,`test`,`deploy`允许作为预设任务的stage，即stage名为`build`,`test`,`deploy`.  
   2.如果一个job没有执行`stage`,该任务会指派为`test` stage.
 
-* ---
+ ---
 
   #### types
 
-  与`stages`
+  与`stages`一样，但是在 10.0版本之后就废弃了
+  
 
 
 
