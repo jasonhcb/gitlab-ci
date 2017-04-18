@@ -203,3 +203,46 @@ job1:
   key: "%CI_JOB_STAGE%/%CI_COMMIT_REF_NAME%"
   untracked: true
   ```
+  ---
+  #### Jobs
+  `.gitlab-ci.yml` 允许你创建无限个jobs，每个job必须有一个独一无二的名字，而且不能是ci的关键字。下面是Job 可定义的一些参数：
+  ```
+  job_name:
+  script:
+    - rake spec
+    - coverage
+  stage: test
+  only:
+    - master
+  except:
+    - develop
+  tags:
+    - ruby
+    - postgres
+  allow_failure: true
+  ```
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
