@@ -185,4 +185,15 @@ job1:
   key: "$CI_COMMIT_REF_NAME"
   untracked: true
   ```
-  
+  启用 per-job and per-branch caching:
+  ```
+  cache:
+  key: "$CI_JOB_NAME/$CI_COMMIT_REF_NAME"
+  untracked: true
+  ```
+  启用 per-branch and per-stage caching:
+  ```
+  cache:
+  key: "$CI_JOB_STAGE/$CI_COMMIT_REF_NAME"
+  untracked: true
+  ```
