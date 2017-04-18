@@ -107,6 +107,8 @@ job1:
   
  ---
   #### variables
+  >该功能自GitLab Runner v0.5.0中引入。
+  
   GitLab CI允许在 .gitlab-ci.yml 里面添加变量以便应用到job系统环境中。 变量存储在git仓库中并用于存储non-sensitive（非敏感）的project配置，（尽量不要放置和密钥相关的信息）如下面的例子：
   ```
   variables:
