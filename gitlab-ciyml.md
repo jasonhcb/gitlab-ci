@@ -197,3 +197,9 @@ job1:
   key: "$CI_JOB_STAGE/$CI_COMMIT_REF_NAME"
   untracked: true
   ```
+  注:  如果你用的是 Windows Batch Windows批处理运行shell scripts， 需要把$替换为%：
+  ```
+  cache:
+  key: "%CI_JOB_STAGE%/%CI_COMMIT_REF_NAME%"
+  untracked: true
+  ```
