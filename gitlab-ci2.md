@@ -34,3 +34,5 @@ job:
   except:
     - master@gitlab-org/gitlab-ce
 ```
+---
+##### job variables
