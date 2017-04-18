@@ -51,25 +51,25 @@ job1:
   | variables | no | 定义build变量 |
   | cache | no | 定义与后续job之间应缓存的文件 |
 
- ---
+  ---
 
   #### image and services
 
   这两个关键词允许指定该job需要使用的自定义的Dokcer images和 Docker services。该功能的配置已涵盖在[GitLab CI与Docker的整合](https://docs.gitlab.com.cn/ce/ci/docker/README.html)文档中。
 
- ---
+  ---
 
   #### before\_script
 
   `before_script`用来定义 所有的jobs开始之前执行的命令， 包括部署任务。他可以是一个数组或多行字符串。
 
- ---
+  ---
 
   #### after\_script
 
   `after_script`用来定义所有builds完成之后执行的任务，它可以是一个数组或者是多行字符串。
 
- ---
+  ---
 
   #### stages
 
@@ -99,31 +99,38 @@ job1:
   1.如果没有定义任何的`stages`，默认情况下`build`,`test`,`deploy`允许作为预设任务的stage，即stage名为`build`,`test`,`deploy`.  
   2.如果一个job没有执行`stage`,该任务会指派为`test` stage.
 
- ---
+  ---
 
   #### types
 
   与`stages`一样，但是在 10.0版本之后就废弃了
-  
- ---
+
+  ---
+
   #### variables
+
   > 该功能自GitLab Runner v0.5.0中引入。
-  
+
   GitLab CI允许在 .gitlab-ci.yml 里面添加变量以便应用到job系统环境中。 变量存储在git仓库中并用于存储non-sensitive（非敏感）的project配置，（尽量不要放置和密钥相关的信息）如下面的例子：
+
   ```
   variables:
   DATABASE_URL: "postgres://postgres@postgres/my_database"
   ```
-这个变量可延迟作用于所有已执行的命令和脚本中。 同时通过YAML定义的变量也会设置所有的服务容器， 因此允许微调这些服务容器。 job level也可以定义变量。
-除了自定义的变量之外，gitlab-runner还提供了一些已经定义的变量对于我们的构建和服务。详细文档请参考：
-[Learn more about variables.](https://docs.gitlab.com.cn/ce/ci/variables/README.html)
+
+  这个变量可延迟作用于所有已执行的命令和脚本中。 同时通过YAML定义的变量也会设置所有的服务容器， 因此允许微调这些服务容器。 job level也可以定义变量。  
+  除了自定义的变量之外，gitlab-runner还提供了一些已经定义的变量对于我们的构建和服务。详细文档请参考：  
+  [Learn more about variables.](https://docs.gitlab.com.cn/ce/ci/variables/README.html)
 
   ---
-  #### cache 
+
+  #### cache
+
   > 该功能自GitLab Runner v0.7.0引入。
-  
-  chche 用来指定需要在 builds 之间进行缓存的一组文件、文件夹。 你可以只使用project workspace里面的路径。在Gitlab 9.0已经默认cache 共享在pipelines 和 jobs。如果定义在 jobs 之外就是全局的cache。比如：
+
+  chche 用来指定需要在 builds 之间进行缓存的一组文件、文件夹。 你可以只使用project workspace里面的路径。在Gitlab 9.0已经默认cache 共享在pipelines 和 jobs。如果定义在 jobs 之外就是全局的cache。比如：  
   缓存binaries 目录下的文件和.config文件：
+
   ```
   rspec:
   script: test
@@ -131,16 +138,19 @@ job1:
     paths:
     - binaries/
     - .config
-
   ```
+
   缓存所有未被Git跟踪的文件：
+
   ```
   rspec:
     script: test
     cache:
       untracked: true
   ```
+
   缓存所有未被Git跟踪的文件以及binaries目录下的文件：
+
   ```
   rspec:
   script: test
@@ -149,7 +159,9 @@ job1:
     paths:
     - binaries/
   ```
+
   下面这个例子即使定义的全局和局部的区别：
+
   ```
   cache:
   paths:
@@ -162,50 +174,66 @@ job1:
       paths:
       - binaries/
   ```
+
   notice: 如果你使用了共享的cache在jobs中，在不同的jobs使用不同的路径，那么你必须要设置不同的cache:key。不然cache内容就会被重写掉。
+
   ##### cache:key 的用法：
-  >该功能自 GitLab Runner v1.0.0引入。
-  
+
+  > 该功能自 GitLab Runner v1.0.0引入。
+
   这个 key 指令允许定义jobs之间缓存的亲和力， 允许所有的jobs只有单个缓存，也可以是每个per-job caching、 per-branch caching，或者其他你认为合适的方法。
 
   key允许你对缓存进行微调， 也允许在不同Jobs设置不同brances之间缓存数据。
 
   cache:key变量可以使用任何 [预定义变量](https://docs.gitlab.com.cn/ce/ci/variables/README.html)。
-  
-  例子如下：
+
+  例子如下：  
   启用 per-job caching:
+
   ```
   cache:
   key: "$CI_JOB_NAME"
   untracked: true
   ```
+
   启用 per-branch caching:
+
   ```
   cache:
   key: "$CI_COMMIT_REF_NAME"
   untracked: true
   ```
+
   启用 per-job and per-branch caching:
+
   ```
   cache:
   key: "$CI_JOB_NAME/$CI_COMMIT_REF_NAME"
   untracked: true
   ```
+
   启用 per-branch and per-stage caching:
+
   ```
   cache:
   key: "$CI_JOB_STAGE/$CI_COMMIT_REF_NAME"
   untracked: true
   ```
+
   注:  如果你用的是 Windows Batch Windows批处理运行shell scripts， 需要把$替换为%：
+
   ```
   cache:
   key: "%CI_JOB_STAGE%/%CI_COMMIT_REF_NAME%"
   untracked: true
   ```
+
   ---
+
   #### Jobs
+
   `.gitlab-ci.yml` 允许你创建无限个jobs，每个job必须有一个独一无二的名字，而且不能是ci的关键字。下面是Job 可定义的一些参数：
+
   ```
   job_name:
   script:
@@ -221,28 +249,27 @@ job1:
     - postgres
   allow_failure: true
   ```
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+  | Keyword | Required | Description |
+  | :--- | :--- | :--- |
+  | script | yes | job执行的脚本 |
+  | image | no | 使用docker-images的作为镜像 [参考使用](https://docs.gitlab.com.cn/ce/ci/docker/using_docker_images.html#define-image-and-services-from-gitlab-ciyml) |
+  | services | no | 使用dokcer-images作为服务 |
+  | stage | no | Defines a job stage \(default:`test`\) |
+  | type | no | Alias for`stage` |
+  | variables | no | Define job variables on a job level |
+  | only | no | Defines a list of git refs for which job is created |
+  | except | no | Defines a list of git refs for which job is not created |
+  | tags | no | Defines a list of tags which are used to select Runner |
+  | allow\_failure | no | Allow job to fail. Failed job doesn't contribute to commit status |
+  | when | no | Define when to run job. Can be`on_success`,`on_failure`,`always`or`manual` |
+  | dependencies | no | Define other jobs that a job depends on so that you can pass artifacts between them |
+  | artifacts | no | Define list of[job artifacts](https://docs.gitlab.com.cn/ce/user/project/pipelines/job_artifacts.html) |
+  | cache | no | Define list of files that should be cached between subsequent runs |
+  | before\_script | no | Override a set of commands that are executed before job |
+  | after\_script | no | Override a set of commands that are executed after job |
+  | environment | no | Defines a name of environment to which deployment is done by this job |
+  | coverage | no | Define code coverage settings for a given job |
+
+
+
