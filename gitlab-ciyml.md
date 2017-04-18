@@ -140,4 +140,12 @@ job1:
     cache:
       untracked: true
   ```
-  
+  缓存所有未被Git跟踪的文件以及binaries目录下的文件：
+  ```
+  rspec:
+  script: test
+  cache:
+    untracked: true
+    paths:
+    - binaries/
+  ```
