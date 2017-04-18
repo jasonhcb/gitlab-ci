@@ -254,7 +254,7 @@ job1:
   | :--- | :--- | :--- |
   | script | yes | job执行的脚本 |
   | image | no | 使用docker-images的作为镜像 [参考使用](https://docs.gitlab.com.cn/ce/ci/docker/using_docker_images.html#define-image-and-services-from-gitlab-ciyml) |
-  | services | no | 使用dokcer-images作为服务 |
+  | services | no | 使用dokcer-images作为服务 [参考使用](https://docs.gitlab.com.cn/ce/ci/docker/using_docker_images.html#define-image-and-services-from-gitlab-ciyml) |
   | stage | no | Defines a job stage \(default:`test`\) |
   | type | no | Alias for`stage` |
   | variables | no | Define job variables on a job level |
