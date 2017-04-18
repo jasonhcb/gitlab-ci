@@ -163,4 +163,6 @@ job1:
       - binaries/
   ```
   notice: 如果你使用了共享的cache在jobs中，在不同的jobs使用不同的路径，那么你必须要设置不同的cache:key。不然cache内容就会被重写掉。
+  ##### cache:key 的用法：
+  
   
