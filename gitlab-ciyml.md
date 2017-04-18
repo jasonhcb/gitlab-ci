@@ -164,5 +164,25 @@ job1:
   ```
   notice: 如果你使用了共享的cache在jobs中，在不同的jobs使用不同的路径，那么你必须要设置不同的cache:key。不然cache内容就会被重写掉。
   ##### cache:key 的用法：
+  >该功能自 GitLab Runner v1.0.0引入。
   
+  这个 key 指令允许定义jobs之间缓存的亲和力， 允许所有的jobs只有单个缓存，也可以是每个per-job caching、 per-branch caching，或者其他你认为合适的方法。
+
+  key允许你对缓存进行微调， 也允许在不同Jobs设置不同brances之间缓存数据。
+
+  cache:key变量可以使用任何 [预定义变量](https://docs.gitlab.com.cn/ce/ci/variables/README.html)。
+  
+  例子如下：
+  启用 per-job caching:
+  ```
+  cache:
+  key: "$CI_JOB_NAME"
+  untracked: true
+  ```
+  启用 per-branch caching:
+  ```
+  cache:
+  key: "$CI_COMMIT_REF_NAME"
+  untracked: true
+  ```
   
