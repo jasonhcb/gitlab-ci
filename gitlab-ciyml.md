@@ -149,3 +149,16 @@ job1:
     paths:
     - binaries/
   ```
+  下面这个例子即使定义的全局和局部的区别：
+  ```
+  cache:
+  paths:
+  - my/files
+
+  rspec:
+    script: test
+    cache:
+      key: rspec
+      paths:
+      - binaries/
+  ```
