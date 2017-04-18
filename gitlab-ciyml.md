@@ -115,3 +115,7 @@ job1:
 这个变量可延迟作用于所有已执行的命令和脚本中。 同时通过YAML定义的变量也会设置所有的服务容器， 因此允许微调这些服务容器。 job level也可以定义变量。
 除了自定义的变量之外，gitlab-runner还提供了一些已经定义的变量对于我们的构建和服务。详细文档请参考：
 [Learn more about variables.](https://docs.gitlab.com.cn/ce/ci/variables/README.html)
+
+  ---
+  #### cache 
+  
