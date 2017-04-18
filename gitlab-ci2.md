@@ -54,5 +54,31 @@ job:
     - ruby
     - postgres
 ```
+---
+##### allow_failure
+`allow_failure`当你允许job失败的时候，而不会影响其他CI套件的使用，失败的job不会影响提交状态。
+
+当允许 job 失败时，pipeline所有的结果将会 变成成功/绿色的状态，但是在提交合并请求或者是提交的时候在job页面就会有一个警告“CI build passed with warning”。允许job 失败的设置后，如果失败那么需要在其他地方下采取一些（手动）操作步骤。
+
+下面这个例子，job1和job2将会运行，如果job1失败了，但是他不会停止下一个stage的运行，一旦设定了
+`allow_failure: true`:
+```
+job1:
+  stage: test
+  script:
+  - execute_script_that_will_fail
+  allow_failure: true
+
+job2:
+  stage: test
+  script:
+  - execute_script_that_will_succeed
+
+job3:
+  stage: deploy
+  script:
+  - deploy_to_staging
+```
+
 
 
