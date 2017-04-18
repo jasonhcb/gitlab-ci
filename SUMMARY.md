@@ -5,4 +5,5 @@
 * [创建构建示例](create-test-demo.md)
 * [创建shared runner](create-shared-runner.md)
 * [.gitlab-ci.yml详解](gitlab-ciyml.md)
+* [gitlab-ci2](gitlab-ci2.md)
 
