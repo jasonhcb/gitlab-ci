@@ -120,4 +120,7 @@ job1:
 
   ---
   #### cache 
+  > 该功能自GitLab Runner v0.7.0引入。
   
+  chche 用来指定需要在 builds 之间进行缓存的一组文件、文件夹。 你可以只使用project workspace里面的路径。
+
