@@ -45,5 +45,14 @@ job_name:
 
 ---
 ##### tags
+`tags`应用于从允许运行此项目中选择 特定的Runner，在注册一个Runner的时候，你会给这个特定的标签，例如：`ruby`,`postgres`,`development`.
+
+`tags`允许你取运行job在有特定指定标签的Runner：如下就是job在ruby和postgres标签的Runner上构建。
+```
+job:
+  tags:
+    - ruby
+    - postgres
+```
 
 
