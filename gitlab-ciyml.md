@@ -257,19 +257,36 @@ job1:
   | services | no | 使用dokcer-images作为服务 [参考使用](https://docs.gitlab.com.cn/ce/ci/docker/using_docker_images.html#define-image-and-services-from-gitlab-ciyml) |
   | stage | no | 定义一个stages \(default:`test`\) |
   | type | no | 别名： `stage` |
-  | variables | no | Define job variables on a job level |
-  | only | no | Defines a list of git refs for which job is created |
-  | except | no | Defines a list of git refs for which job is not created |
-  | tags | no | Defines a list of tags which are used to select Runner |
-  | allow\_failure | no | Allow job to fail. Failed job doesn't contribute to commit status |
-  | when | no | Define when to run job. Can be`on_success`,`on_failure`,`always`or`manual` |
-  | dependencies | no | Define other jobs that a job depends on so that you can pass artifacts between them |
-  | artifacts | no | Define list of[job artifacts](https://docs.gitlab.com.cn/ce/user/project/pipelines/job_artifacts.html) |
-  | cache | no | Define list of files that should be cached between subsequent runs |
-  | before\_script | no | Override a set of commands that are executed before job |
-  | after\_script | no | Override a set of commands that are executed after job |
-  | environment | no | Defines a name of environment to which deployment is done by this job |
-  | coverage | no | Define code coverage settings for a given job |
+  | variables | no | 定义job 的变量 |
+  | only | no | 定义git操作list时 触发job创建 |
+  | except | no | 定义git操作list时 不触发Job构建 |
+  | tags | no | 定义用于选择Runner的tags列表 |
+  | allow\_failure | no | 允许job构建失败. 失败的job不进入提交状态 |
+  | when | no | 定义什么时候运行job，可能值为：`on_success`,`on_failure`,`always`or`manual` |
+  | dependencies | no | 定义其他jobs的依赖job，便于构建的传递 |
+  | artifacts | no | 定义文件 参考：[job artifacts](https://docs.gitlab.com.cn/ce/user/project/pipelines/job_artifacts.html) |
+  | cache | no | 定义cache缓存 |
+  | before\_script | no | 重写jobs外定义的before\_script |
+  | after\_script | no | 重写Jobs外定义的after\_script |
+  | environment | no | 定义jobs完成的构建的环境 |
+  | coverage | no | 定义给定jobs的代码覆盖率 |
 
-
+  下面详细介绍以上参数的含义：
+  
+  ---
+  ##### script
+  `script`是Runner执行的shell脚本，比如：
+  ```
+  job:
+  script: "bundle exec rspec"
+  ```
+  此参数还可以包含使用数组形式：
+  ```
+  job:
+  script:
+    - uname -a
+    - bundle exec rspec
+  ```
+  有时候，`script`命令需要用单引号或者双引号括起来，例如，包含冒号（`：`）的命令需要用引号括起来，以便YAML解析的时候知道这不是key：value的形似，一下字符需要小心：
+  `:`，`{`，`}`，`[`，`]`，`,`，`&`，`*`，`#`，`?`，`|`，`-`，`<`，`>`，`=`，`!`，`%`，`@`，```。
 
