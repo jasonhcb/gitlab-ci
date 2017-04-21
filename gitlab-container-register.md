@@ -22,8 +22,7 @@
 请参考 issuer #14
 
 ### 2.配置gitlab的Resistry
-将生成的证书 映射 到容器目录中
-把以下 配置 加入到 gitlab/docker-compose.yml文件中
+将生成的证书 映射 到容器目录中，把以下 配置 加入到 gitlab/docker-compose.yml文件中
 ```
  gitlab:
    volumes:
