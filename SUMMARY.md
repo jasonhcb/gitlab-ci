@@ -6,4 +6,5 @@
 * [创建shared runner](create-shared-runner.md)
 * [.gitlab-ci.yml详解](gitlab-ciyml.md)
 * [gitlab-ci2](gitlab-ci2.md)
+* [gitlab-container-register](gitlab-container-register.md)
 
