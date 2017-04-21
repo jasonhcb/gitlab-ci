@@ -18,10 +18,10 @@
 | `SSL_REGISTRY_CERT_PATH` | 通过nginx代理https的Cert密钥|
 
 ## 安装
-
-以下配置 
+ 
 * gitlab.rdc.carllhw.com 是gitlab地址
 * registry.rdc.carllhw.com 是registry地址
+
 ### 1. 证书生成
 请参考 issuer #14
 
