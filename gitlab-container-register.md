@@ -47,8 +47,6 @@ registry:
     volumes:
     - /root/sm/registry-data:/var/lib/registry
     - /vagrant/www.rdc.carllhw.com:/certs
-    extra_hosts:
-    - "gitlab.rdc.carllhw.com:192.168.59.103"
     environment:
     - REGISTRY_LOG_LEVEL=info
     - REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/var/lib/registry
