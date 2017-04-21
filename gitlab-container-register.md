@@ -63,5 +63,32 @@ registry:
 
 ### 4. 配置nginx转发
 如下是gitlab 和 registry的ngnix的conf配置：
+
+gitlab.conf
 ```
+server {
+        server_name gitlab.rdc.carllhw.com;
+        listen 443 ssl;
+
+        ssl on;
+        ssl_session_timeout 5m;
+        ssl_protocols SSLv2 SSLv3 TLSv1;
+        #make sure you already have this certificate pair!
+        ssl_certificate /cert/fullchain.pem;
+        ssl_certificate_key /cert/privkey.pem;
+        ssl_session_cache shared:SSL:10m;
+        location /{
+            client_max_body_size 0;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+	    proxy_set_header X-Forwarded-Proto https;
+            proxy_redirect off;
+            proxy_connect_timeout      2400;
+            proxy_send_timeout         2400;
+            proxy_read_timeout         2400;
+	   #proxy_pass http://172.20.0.66:8000/gitlab;
+	    proxy_pass http://192.168.59.103:10080;
+	}
+    }
+
 ```
