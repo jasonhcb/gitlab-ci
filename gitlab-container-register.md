@@ -27,12 +27,12 @@
 ```
  gitlab:
    volumes:
-    - ./certs:/certs
+   - ./certs:/certs
    environment:
-    - GITLAB_REGISTRY_ENABLED=true
-    - GITLAB_REGISTRY_HOST=registry.rdc.carllhw.com
-    - GITLAB_REGISTRY_PORT=443
-    - GITLAB_REGISTRY_API_URL=https://registry.rdc.carllhw.com
-    - GITLAB_REGISTRY_CERT_PATH=/certs/fullchain.pem
-    - GITLAB_REGISTRY_KEY_PATH=/certs/privkey.pem
+   - GITLAB_REGISTRY_ENABLED=true
+   - GITLAB_REGISTRY_HOST=registry.rdc.carllhw.com
+   - GITLAB_REGISTRY_PORT=443
+   - GITLAB_REGISTRY_API_URL=https://registry.rdc.carllhw.com
+   - GITLAB_REGISTRY_CERT_PATH=/certs/fullchain.pem
+   - GITLAB_REGISTRY_KEY_PATH=/certs/privkey.pem
 ```
