@@ -64,5 +64,4 @@ registry:
 ### 4. 配置nginx转发
 如下是gitlab 和 registry的ngnix的conf配置：
 ```
-
 ```
