@@ -17,3 +17,4 @@
 | `SSL_REGISTRY_KEY_PATH` | 通过nginx代理https的key密钥 |
 | `SSL_REGISTRY_CERT_PATH` | 通过nginx代理https的Cert密钥|
 
+## 证书生成
