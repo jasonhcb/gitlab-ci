@@ -27,7 +27,7 @@
 ```
  gitlab:
    volumes:
-   - ./certs:/certs
+    - ./certs:/certs
    environment:
     - GITLAB_REGISTRY_ENABLED=true
     - GITLAB_REGISTRY_HOST=registry.rdc.carllhw.com
