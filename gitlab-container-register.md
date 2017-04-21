@@ -94,6 +94,7 @@ server {
 
 ```
 * `registry.conf`
+
 ```
 server {
         server_name registry.rdc.carllhw.com;
