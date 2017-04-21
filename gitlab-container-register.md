@@ -18,6 +18,7 @@
 | `SSL_REGISTRY_CERT_PATH` | 通过nginx代理https的Cert密钥|
 
 ## 安装
+
 ### 1. 证书生成
 请参考 issuer #14
 
@@ -59,3 +60,5 @@ registry:
     - REGISTRY_HTTP_TLS_KEY=/certs/privkey.pem
     - REGISTRY_HTTP_SECRET=long-and-random-alphanumeric-string
 ```
+
+### 4. 配置nginx转发
